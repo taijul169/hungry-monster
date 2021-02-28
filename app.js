@@ -10,7 +10,8 @@ const getData = async(name)=>{
     })
     .then(data =>{
        
-        for( let i =0; i <data.meals.length; i++){
+        for( let i = 0; i <data.meals.length; i++){
+            document.querySelector('.alert').style.display="none";
             const colmdThree = document.createElement("div");
             colmdThree.classList.add('col-md-3');
             colmdThree.innerHTML = ` <div class="single-meal text-center card">
@@ -27,7 +28,9 @@ const getData = async(name)=>{
     })
       
   } catch (error) {
-      console.log('this is error from api', error);
+      row.innerHTML =`<div class="alert alert-danger" role="alert">
+      Nothing has found with this name!!
+    </div>`;
   }
 }
 
